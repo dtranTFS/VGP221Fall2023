@@ -93,4 +93,33 @@ void AFPSCharacter::EndJump()
 void AFPSCharacter::Fire()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Pressing Fire From Character"));
+
+	if (!ProjectileClass) return;
+
+	// Precaculations of loc and rot
+	FVector CameraLocation;
+	FRotator CameraRotation;
+	GetActorEyesViewPoint(CameraLocation, CameraRotation);
+
+	MuzzleOffset.Set(100.0f, 0.0f, 0.0f);
+
+	FVector MuzzleLocation = CameraLocation + FTransform(CameraRotation).TransformVector(MuzzleOffset);
+	FRotator MuzzleRotation = CameraRotation;
+	MuzzleRotation.Pitch += 10.0f;
+
+	// Get World to spawn actor
+	UWorld* World = GetWorld();
+	if (!World) return;
+
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = this;
+	SpawnParams.Instigator = GetInstigator();
+
+	// Similar to unity Instantiate. Spawn Actor from class
+	AFPSProjectile* Projectile = World->SpawnActor<AFPSProjectile>(ProjectileClass, MuzzleLocation, MuzzleRotation, SpawnParams);
+
+	// Shoot projectile in direction
+	if (!Projectile) return;
+	FVector LaunchDirection = MuzzleRotation.Vector();
+	Projectile->FireInDirection(LaunchDirection);
 }
