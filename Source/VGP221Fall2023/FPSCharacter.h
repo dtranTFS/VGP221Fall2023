@@ -7,6 +7,8 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "FPSProjectile.h"
+#include "Kismet/GameplayStatics.h"
+#include "VGP221Fall2023GameModeBase.h"
 #include "FPSCharacter.generated.h"
 
 UCLASS()
@@ -55,4 +57,7 @@ public:
 
 	UFUNCTION()
 	void Fire();
+
+	float Health = 100;
+	const float MaxHealth = 100;
 };

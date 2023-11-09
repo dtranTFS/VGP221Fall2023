@@ -92,6 +92,15 @@ void AFPSCharacter::EndJump()
 
 void AFPSCharacter::Fire()
 {
+	// Nice easy way to get game mode from anywhere
+	AVGP221Fall2023GameModeBase* GameMode = Cast<AVGP221Fall2023GameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	if (GameMode) {
+		Health -= 10;
+		float healthPercent = Health / MaxHealth;
+
+		GameMode->CurrentWidget->SetHealthBar(healthPercent);
+	}
+
 	UE_LOG(LogTemp, Warning, TEXT("Pressing Fire From Character"));
 
 	if (!ProjectileClass) return;
