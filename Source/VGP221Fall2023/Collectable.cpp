@@ -34,7 +34,7 @@ void ACollectable::Tick(float DeltaTime)
 
 void ACollectable::OnCollect()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Collectable: OnCollect()"));
+	
 }
 
 void ACollectable::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)

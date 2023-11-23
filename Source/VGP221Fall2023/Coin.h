@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Collectable.h"
+#include "Kismet/GameplayStatics.h"
+#include "VGP221Fall2023GameModeBase.h"
 #include "Coin.generated.h"
 
 /**
@@ -28,6 +30,18 @@ public:
 
 	virtual void OnCollect() override;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Points = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float RotationRate = 100;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CollectRotationRate = 1500;
+
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* CoinMesh;
+
+	FTimerHandle DeathTimerHandle;
+	void DeathTimerComplete();
 };
