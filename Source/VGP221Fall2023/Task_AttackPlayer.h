@@ -13,5 +13,7 @@ UCLASS()
 class VGP221FALL2023_API UTask_AttackPlayer : public UBTTaskNode
 {
 	GENERATED_BODY()
-	
+
+private:
+	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 };
