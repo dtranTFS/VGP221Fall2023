@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Collectable.h"
+#include "Collectable/Collectable.h"
 
 // Sets default values
 ACollectable::ACollectable()

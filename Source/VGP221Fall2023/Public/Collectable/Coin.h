@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Collectable.h"
+#include "Collectable/Collectable.h"
 #include "Kismet/GameplayStatics.h"
 #include "VGP221Fall2023GameModeBase.h"
 #include "Coin.generated.h"

@@ -7,7 +7,7 @@
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
-#include "ButtonWidget.h"
+#include "UI/ButtonWidget.h"
 #include "FPSUserWidget.generated.h"
 
 /**

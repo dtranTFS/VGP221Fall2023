@@ -5,7 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "Blueprint/UserWidget.h"
-#include "FPSUserWidget.h"
+#include "UI/FPSUserWidget.h"
+#include "Logging/StructuredLog.h"
 #include "VGP221Fall2023GameModeBase.generated.h"
 
 /**
